@@ -6,9 +6,9 @@ import lombok.*;
 
 import java.util.List;
 
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter@Setter
 @Entity
 @Table(name = "tb_cadastro")
 public class NinjaModel {
