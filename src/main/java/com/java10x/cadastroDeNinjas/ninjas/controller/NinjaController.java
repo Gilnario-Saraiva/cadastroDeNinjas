@@ -1,4 +1,4 @@
-package com.java10x.cadastroDeNinjas.controller;
+package com.java10x.cadastroDeNinjas.ninjas.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -1,7 +1,10 @@
-package com.java10x.cadastroDeNinjas.model;
+package com.java10x.cadastroDeNinjas.ninjas.model;
 
+import com.java10x.cadastroDeNinjas.missoes.model.MissoesModel;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -16,4 +19,7 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    @ManyToOne
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 }
