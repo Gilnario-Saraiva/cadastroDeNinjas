@@ -1,10 +1,21 @@
 package com.java10x.cadastroDeNinjas.ninjas.controller;
 
+import com.java10x.cadastroDeNinjas.ninjas.model.NinjaModel;
+import com.java10x.cadastroDeNinjas.ninjas.service.NinjaService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("/ninja")
+@RequestMapping("/ninjas")
 public class NinjaController {
+
+    private NinjaService ninjaService;
+
+    public NinjaController(NinjaService ninjaService) {
+        this.ninjaService = ninjaService;
+    }
 
     @GetMapping("/boasvindas")
     public String boasVindas(){
@@ -17,8 +28,8 @@ public class NinjaController {
     }
 
     @GetMapping("/listar")
-    public String mostrarTodosOsNinjas(){
-        return "Todos os ninjas";
+    public List<NinjaModel> listarNinjas(){
+        return ninjaService.listarNinjas();
     }
 
     @GetMapping("/listarID")
