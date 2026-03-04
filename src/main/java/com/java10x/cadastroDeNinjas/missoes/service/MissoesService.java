@@ -18,4 +18,6 @@ public class MissoesService {
     public List<MissoesModel> listarMissoes(){
         return missoesRepository.findAll();
     }
+
+    public MissoesModel listarMissoesPorId(Long id){return missoesRepository.findById(id).orElse(null);}
 }
