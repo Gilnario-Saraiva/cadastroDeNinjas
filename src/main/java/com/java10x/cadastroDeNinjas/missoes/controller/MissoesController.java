@@ -25,8 +25,8 @@ public class MissoesController {
     public MissoesModel listarMissoesPorId(@PathVariable Long id) {return missoesService.listarMissoesPorId(id);}
 
     @PostMapping("/criar")
-    public String criarMissao(){
-        return "Missão criada com sucesso.";
+    public MissoesModel criarMissao(@RequestBody MissoesModel missao){
+        return missoesService.criarMissao(missao);
     }
 
     @PutMapping("/alterar")

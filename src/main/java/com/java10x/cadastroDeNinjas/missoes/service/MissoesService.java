@@ -20,4 +20,6 @@ public class MissoesService {
     }
 
     public MissoesModel listarMissoesPorId(Long id){return missoesRepository.findById(id).orElse(null);}
+
+    public MissoesModel criarMissao(MissoesModel missoes){return missoesRepository.save(missoes);}
 }
