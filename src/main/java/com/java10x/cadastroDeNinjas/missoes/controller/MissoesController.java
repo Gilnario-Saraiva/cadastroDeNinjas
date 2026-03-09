@@ -1,5 +1,7 @@
 package com.java10x.cadastroDeNinjas.missoes.controller;
 
+import com.java10x.cadastroDeNinjas.missoes.model.MissoesDTO;
+import com.java10x.cadastroDeNinjas.missoes.model.MissoesMapper;
 import com.java10x.cadastroDeNinjas.missoes.model.MissoesModel;
 import com.java10x.cadastroDeNinjas.missoes.service.MissoesService;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +27,8 @@ public class MissoesController {
     public MissoesModel listarMissoesPorId(@PathVariable Long id) {return missoesService.listarMissoesPorId(id);}
 
     @PostMapping("/criar")
-    public MissoesModel criarMissao(@RequestBody MissoesModel missao){
-        return missoesService.criarMissao(missao);
+    public MissoesDTO criarMissao(@RequestBody MissoesDTO missaoDTO){
+        return missoesService.criarMissao(missaoDTO);
     }
 
     @PutMapping("/alterar/{id}")

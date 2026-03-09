@@ -1,5 +1,7 @@
 package com.java10x.cadastroDeNinjas.missoes.service;
 
+import com.java10x.cadastroDeNinjas.missoes.model.MissoesDTO;
+import com.java10x.cadastroDeNinjas.missoes.model.MissoesMapper;
 import com.java10x.cadastroDeNinjas.missoes.model.MissoesModel;
 import com.java10x.cadastroDeNinjas.missoes.repository.MissoesRepository;
 import com.java10x.cadastroDeNinjas.ninjas.model.NinjaModel;
@@ -11,9 +13,11 @@ import java.util.List;
 public class MissoesService {
 
     private MissoesRepository missoesRepository;
+    private MissoesMapper missoesMapper;
 
-    public MissoesService(MissoesRepository missoesRepository) {
+    public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper) {
         this.missoesRepository = missoesRepository;
+        this.missoesMapper = missoesMapper;
     }
 
     public List<MissoesModel> listarMissoes(){
@@ -22,7 +26,11 @@ public class MissoesService {
 
     public MissoesModel listarMissoesPorId(Long id){return missoesRepository.findById(id).orElse(null);}
 
-    public MissoesModel criarMissao(MissoesModel missoes){return missoesRepository.save(missoes);}
+    public MissoesDTO criarMissao(MissoesDTO missoesDTO){
+        MissoesModel missoes = missoesMapper.map(missoesDTO);
+        missoes = missoesRepository.save(missoes);
+        return missoesMapper.map(missoes);
+    }
 
     public void deletarMissoesPorId(Long id) {missoesRepository.deleteById(id);}
 

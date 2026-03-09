@@ -1,5 +1,6 @@
 package com.java10x.cadastroDeNinjas.ninjas.controller;
 
+import com.java10x.cadastroDeNinjas.ninjas.model.NinjaDTO;
 import com.java10x.cadastroDeNinjas.ninjas.model.NinjaModel;
 import com.java10x.cadastroDeNinjas.ninjas.service.NinjaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class NinjaController {
     }
 
     @PostMapping("/criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){ return ninjaService.criarNinja(ninja); }
+    public NinjaDTO criarNinja(@RequestBody NinjaDTO ninja){ return ninjaService.criarNinja(ninja); }
 
     @GetMapping("/listar")
     public List<NinjaModel> listarNinjas(){
