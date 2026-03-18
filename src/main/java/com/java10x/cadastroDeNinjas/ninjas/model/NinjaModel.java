@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_cadastro")
+@ToString(exclude = "missoes")
 public class NinjaModel {
 
     @Id
